@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: mysvc
 spec:
-  type: Nodeport
+  type: NodePort
   selector:
     app: mybluepod
   ports:
