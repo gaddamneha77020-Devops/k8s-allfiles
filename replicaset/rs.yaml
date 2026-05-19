@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrspods
+spec:
+  minReadySeconds: 5
+  replicas: 4
+  selector:
+    matchExpressions:
+      - key: dev-app
+        operator: In
+        values:
+          - pods
+  template:
+    metadata:
+      name: mypodrs
+      labels:
+        dev-app: pods
+    spec:
+      containers:
+        - name: demo
+          image: longflew/ingress:BLUEPAGE
+          ports:
+            - containerPort: 80
