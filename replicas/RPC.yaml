@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mypodrpc
+spec:
+  minReadySeconds: 5
+  replicas: 4
+  selector:
+    app: dev-pods
+  template:
+    metadata:
+      name: mypodrpcred
+      labels:
+        app: dev-pods
+    spec:
+      containers:
+        - name: demo
+          image: nginx:1.29
+          ports:
+            - containerPort: 80
+      resources:
+        requests:
+          cpu: 250m
+          memory: 64Mi
+        limits:
+          cpu: 500m
+          memory: 240Mi
