@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydp
+  namespace: dev
+  annotations:
+    kubernetes.io/change-cause: "Deploy to red"
+spec:
+  minReadySeconds: 5
+  replicas: 2
+  selector:
+    matchLabels:
+      dev: app-pods
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      name: mypodrs
+      labels:
+        dev: app-pods
+    spec:
+      containers:
+        - name: demo
+          image: longflew/ingress:REDPAGE
+          ports:
+            - containerPort: 80
+
+              
