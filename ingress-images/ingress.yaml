@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-prod-app
+  namespace: prod
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /podtalk
+            pathType: Prefix
+            backend:
+              service:
+                name: mysvcdppodtalk
+          - path: /imagesurvey
+            pathType: Prefix
+            backend:
+              service:
+                name: mysvcdpimagesurvey

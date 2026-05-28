@@ -1,0 +1,11 @@
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: mysvcdppodtalk
+    namespace: prod
+  spec:
+    type: ClusterIP
+    selector:
+      dev: podtalk-pods
+    ports:
+      - port: 80

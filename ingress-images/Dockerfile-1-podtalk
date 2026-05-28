@@ -1,0 +1,2 @@
+FROM nginx
+ADD templatemo_584_pod_talk  /usr/share/nginx/html

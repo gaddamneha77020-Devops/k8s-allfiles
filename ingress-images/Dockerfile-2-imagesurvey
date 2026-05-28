@@ -1,0 +1,2 @@
+FROM nginx
+ADD templatemo_523_image_survey  /usr/share/nginx/html
